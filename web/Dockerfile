@@ -23,7 +23,7 @@ WORKDIR /app
 # copied in our `Pipfile`, `pipenv` will use that to get a list of dependencies.
 # We include a couple of extra options suitable for deployment.
 RUN pipenv install --system --deploy
-
+RUN pip install psycopg
 # At this point we've set up our virtual computer, but we've not _yet_ run our
 # application. And we're not going to! We're just setting up the container
 # so that it's ready to do so when we tell it.
@@ -31,3 +31,5 @@ RUN pipenv install --system --deploy
 # So we're going to tell Docker here that when we _do_ want to run it, this is
 # what it should run:
 CMD ["python", "app.py"]
+
+
